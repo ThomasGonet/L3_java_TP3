@@ -1,5 +1,7 @@
+package anagram;
 import java.util.* ; 
 import java.io.*;
+import anagram.Signature;
 
 public class Anagram {
 
@@ -40,7 +42,7 @@ public class Anagram {
 				{
 					if(list2.get(j).length() == s)
 					{
-						if(sortString(anag.get(0)).equals(sortString(list2.get(j))))
+						if(Signature.sortString(anag.get(0)).equals(Signature.sortString(list2.get(j))))
 						{
 							//System.out.println("egal");
 							nbAnag++;
@@ -69,12 +71,6 @@ public class Anagram {
 	}
 	
 	
-	public static String sortString(String s)
-	{
-		char[] ar = s.toCharArray();
-		Arrays.sort(ar);
-		String str = new String(ar);
-		return str; 
-	}
+
 	
 }
