@@ -28,24 +28,27 @@ public class Anagram {
 			anag = new ArrayList<String>();
 			anag.add(list.get(0));
 			list.remove(list.get(0));
+			int s = anag.get(0).length();
 			nbAnag = 1;
 			//System.out.println(s);
-			if(anag.get(0).length() >= 0)
-			{
+
 				//System.out.println("oui");
 				//String sr1 = sortString(s);
 				ArrayList<String> list2 = null;
 				list2 = list;
 				for(int j = 0; j < list2.size(); j++)
 				{
-					if(sortString(anag.get(0)).equals(sortString(list2.get(j))))
+					if(list2.get(j).length() == s)
 					{
-						//System.out.println("egal");
-						nbAnag++;
-						anag.add(list2.get(j));
-						//int j = list.indexOf(s2);
-						//list.remove(list2.get(j));
-					}	
+						if(sortString(anag.get(0)).equals(sortString(list2.get(j))))
+						{
+							//System.out.println("egal");
+							nbAnag++;
+							anag.add(list2.get(j));
+							//int j = list.indexOf(s2);
+							//list.remove(list2.get(j));
+						}	
+					}
 				}
 				//System.out.println(anag.size());
 				//attention au premier element!
@@ -61,7 +64,6 @@ public class Anagram {
 					System.out.println("\n");
 				}
 				//System.out.println("\n");
-			}
 		}
 		
 	}
