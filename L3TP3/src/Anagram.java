@@ -21,35 +21,43 @@ public class Anagram {
 		catch(FileNotFoundException e){System.err.println("Le fichier est introuvable !");}
 		
 		System.out.println(list.size());
-
-		for(String s : list)
+		ArrayList<String> anag;
+		/*for(int  i = 0; i < list.size(); i++)*/
+		while(list.size()>1)
 		{
-			ArrayList<String> anag = new ArrayList<String>();
-			anag.add(s);
-			nbAnag = 0;
+			anag = new ArrayList<String>();
+			anag.add(list.get(0));
+			list.remove(list.get(0));
+			nbAnag = 1;
 			//System.out.println(s);
-			if(s.length() >= 8)
+			if(anag.get(0).length() >= 0)
 			{
 				//System.out.println("oui");
 				//String sr1 = sortString(s);
-				for(String s2 : list)
+				ArrayList<String> list2 = null;
+				list2 = list;
+				for(int j = 0; j < list2.size(); j++)
 				{
-					if(sortString(s).equals(sortString(s2)))
+					if(sortString(anag.get(0)).equals(sortString(list2.get(j))))
 					{
 						//System.out.println("egal");
 						nbAnag++;
-						anag.add(s2);
-						
+						anag.add(list2.get(j));
+						//int j = list.indexOf(s2);
+						//list.remove(list2.get(j));
 					}	
 				}
 				//System.out.println(anag.size());
 				//attention au premier element!
-				if(nbAnag > 2)
+				if(nbAnag > 8)
 				{
 					System.out.print(nbAnag + "  : ");
-					System.out.print(anag.get(1));
-					for(int i = 2; i < anag.size(); i++)
+					System.out.print(anag.get(0));
+					for(int i = 1; i < anag.size(); i++)
+					{
 						System.out.print(", " + anag.get(i));
+						list.remove(anag.get(i));
+					}
 					System.out.println("\n");
 				}
 				//System.out.println("\n");
